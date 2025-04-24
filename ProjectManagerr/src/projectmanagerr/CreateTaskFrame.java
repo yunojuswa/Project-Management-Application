@@ -88,6 +88,11 @@ public class CreateTaskFrame extends JFrame {
                     taskData = new JSONObject();
                 }
 
+                if (title.isEmpty() || desc.isEmpty() || due.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "Please fill the blanks!");
+                    return;
+                }
+
                 // Get tasks ng user
                 JSONArray tasks = (JSONArray) taskData.get(username);
                 if (tasks == null) {
