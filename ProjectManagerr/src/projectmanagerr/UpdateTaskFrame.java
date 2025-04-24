@@ -113,6 +113,9 @@ public class UpdateTaskFrame extends JFrame {
 
         // I-update ang task
         updateBtn.addActionListener(e -> {
+            if (userTasks.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please select a task to update.");
+            }
             int index = taskSelector.getSelectedIndex();
             if (index >= 0 && userTasks != null && index < userTasks.size()) {
                 JSONObject selectedTask = (JSONObject) userTasks.get(index);
